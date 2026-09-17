@@ -44,7 +44,7 @@ const sortOptions = [
   },
 ];
 
-export default function MePage() {
+export default function DocPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -52,7 +52,7 @@ export default function MePage() {
         <Button
           className="cursor-pointer"
           render={
-            <Link href="/app/new">
+            <Link href="/doc/new">
               <PlusIcon className="size-4" />
               Create New
             </Link>
@@ -90,7 +90,7 @@ export default function MePage() {
           <Button
             className="flex-inline mt-5"
             render={
-              <Link href="/app/new">
+              <Link href="/doc/new">
                 <PlusIcon className="size-4" /> New Document
               </Link>
             }

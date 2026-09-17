@@ -2,7 +2,7 @@ import { HomeHeader } from "../(home)/_components/home-header";
 import { HomeFooter } from "../(home)/_components/home-footer";
 import { ReactNode } from "react";
 
-export default function MeLayout({ children }: { children: ReactNode }) {
+export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <HomeHeader />
