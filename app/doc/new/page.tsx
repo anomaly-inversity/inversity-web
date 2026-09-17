@@ -1,14 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { FormGroup } from "@/components/ui/form/form-group";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -16,13 +9,11 @@ import { newDocumentDefaultValues, newDocumentSchema } from "./schema";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import {
   AlignLeftIcon,
   ArrowLeftIcon,
   EyeIcon,
-  FilePlus2Icon,
   FileTextIcon,
   FileUpIcon,
   SaveIcon,
@@ -60,7 +51,7 @@ export default function NewAppPage() {
   });
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-6 pb-10">
+    <div className="mx-auto w-full max-w-4xl space-y-6 pb-10">
       <div className="space-y-5">
         <Button
           variant="ghost"

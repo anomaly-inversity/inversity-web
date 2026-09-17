@@ -69,11 +69,11 @@ export default function DocPage() {
         </div>
         <Select>
           <SelectTrigger>
-            <SelectValue placeholder="Sort by" />
+            <SelectValue className="w-40" placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
             {sortOptions.map((option, i) => (
-              <SelectItem key={i} value={option.value}>
+              <SelectItem key={i} value={option.value} label={option.label}>
                 {option.label}
               </SelectItem>
             ))}
@@ -81,14 +81,19 @@ export default function DocPage() {
         </Select>
       </div>
 
-      <Card className="py-20 flex items-center justify-center">
-        <div className="text-center">
-          <FilesIcon className="size-40 text-primary mb-10 inline" />
-          <div className="text-muted-foreground">
-            You don{"'"}t have any documents yet.
+      <Card className="relative overflow-hidden py-16 flex items-center justify-center rounded-2xl">
+        <div className="relative text-center px-6">
+          <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-lg shadow-primary/25 ring-1 ring-primary/20">
+            <FilesIcon className="size-7" />
+          </div>
+          <h3 className="text-base font-semibold tracking-tight">
+            No documents yet
+          </h3>
+          <div className="mt-1.5 text-sm text-muted-foreground">
+            You don{"'"}t have any documents yet. Start with your first one.
           </div>
           <Button
-            className="flex-inline mt-5"
+            className="mt-6 shadow-sm shadow-primary/20"
             render={
               <Link href="/doc/new">
                 <PlusIcon className="size-4" /> New Document
@@ -100,7 +105,7 @@ export default function DocPage() {
 
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
         {Array.from({ length: 9 }).map((_, i) => (
-          <Card key={i} className="h-40 group">
+          <Card key={i} className="h-40 group transition hover:scale-105">
             <CardContent className="relative">
               <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
                 <FileIcon className="h-6 w-6 text-primary" />
