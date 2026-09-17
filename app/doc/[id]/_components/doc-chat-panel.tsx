@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { mockChatMessages, mockSuggestions } from "./mock";
 import { BotIcon, SendIcon, SparklesIcon, UserIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function DocChatPanel() {
+export function ChatBody({ compact = false }: { compact?: boolean }) {
   const [messages, setMessages] = useState(mockChatMessages);
   const [value, setValue] = useState("");
 
@@ -31,26 +31,13 @@ export function DocChatPanel() {
   };
 
   return (
-    <Card className="flex h-[calc(100vh-220px)] min-h-[560px] flex-col overflow-hidden py-0">
-      <div className="flex items-center gap-3 px-4 pt-4 pb-3">
-        <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-          <BotIcon className="size-4.5" />
-        </span>
-        <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold">Doc Chatbot</p>
-          <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-emerald-500" />
-            Online · mock mode
-          </p>
-        </div>
-        <Badge variant="secondary">
-          <SparklesIcon className="size-3" />
-          RAG
-        </Badge>
-      </div>
-      <Separator />
-
-      <CardContent className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div
+        className={cn(
+          "flex-1 space-y-4 overflow-y-auto px-4 py-4",
+          compact && "space-y-3"
+        )}
+      >
         {messages.map((m) => (
           <div
             key={m.id}
@@ -85,7 +72,7 @@ export function DocChatPanel() {
             </div>
           </div>
         ))}
-      </CardContent>
+      </div>
 
       <div className="space-y-3 px-4 pb-4">
         <div className="flex flex-wrap gap-1.5">
@@ -118,6 +105,31 @@ export function DocChatPanel() {
           </Button>
         </form>
       </div>
+    </div>
+  );
+}
+
+export function DocChatPanel() {
+  return (
+    <Card className="flex h-[calc(100vh-220px)] min-h-[560px] flex-col overflow-hidden py-0">
+      <div className="flex items-center gap-3 px-4 pt-4 pb-3">
+        <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+          <BotIcon className="size-4.5" />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold">Doc Chatbot</p>
+          <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-emerald-500" />
+            Online · mock mode
+          </p>
+        </div>
+        <Badge variant="secondary">
+          <SparklesIcon className="size-3" />
+          RAG
+        </Badge>
+      </div>
+      <Separator />
+      <ChatBody />
     </Card>
   );
 }

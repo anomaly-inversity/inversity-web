@@ -60,7 +60,7 @@ export function DocPreviewPanel() {
   const [zoom, setZoom] = useState(100);
 
   return (
-    <Card className="flex h-[calc(100vh-220px)] min-h-[560px] flex-col overflow-hidden py-0">
+    <Card className="flex h-[calc(100vh-200px)] min-h-[560px] flex-col overflow-hidden py-0">
       <div className="flex flex-wrap items-center gap-2 px-4 pt-3.5 pb-3">
         <span className="flex size-8 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
           <FileTextIcon className="size-4" />

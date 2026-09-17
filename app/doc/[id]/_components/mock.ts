@@ -57,3 +57,121 @@ export const mockDetector = {
     { name: "Appendix Tables", ai: 4, human: 96 },
   ],
 };
+
+export type DetectorParagraph = {
+  id: string;
+  text: string;
+  ai: boolean;
+  score: number;
+};
+
+export type DetectorPage = {
+  page: number;
+  title: string;
+  ai: number;
+  paragraphs: DetectorParagraph[];
+};
+
+export const mockDetectorPages: DetectorPage[] = [
+  {
+    page: 1,
+    title: "Cover & Executive Summary",
+    ai: 6,
+    paragraphs: [
+      {
+        id: "p1-1",
+        text: "Laporan ini merangkum kinerja pemasaran Q3 2026 dengan pendekatan berbasis data dari seluruh channel akuisisi.",
+        ai: false,
+        score: 4,
+      },
+      {
+        id: "p1-2",
+        text: "Revenue tercatat $1.24M, tumbuh 18% QoQ, dengan kontribusi terbesar dari Organic Search sebesar 38%.",
+        ai: false,
+        score: 7,
+      },
+    ],
+  },
+  {
+    page: 2,
+    title: "Revenue Breakdown",
+    ai: 9,
+    paragraphs: [
+      {
+        id: "p2-1",
+        text: "Segmen enterprise tumbuh paling cepat setelah peluncuran paket tahunan dengan insentif onboarding.",
+        ai: false,
+        score: 11,
+      },
+      {
+        id: "p2-2",
+        text: "Kontribusi mid-market stabil, sementara segmen SMB menunjukkan fluktuasi mingguan yang wajar.",
+        ai: false,
+        score: 6,
+      },
+    ],
+  },
+  {
+    page: 3,
+    title: "Channel Breakdown",
+    ai: 34,
+    paragraphs: [
+      {
+        id: "p3-1",
+        text: "Organic Search mencatat efisiensi tertinggi dengan CAC turun 22% berkat cluster konten pricing dan comparison.",
+        ai: false,
+        score: 9,
+      },
+      {
+        id: "p3-2",
+        text: "In conclusion, leveraging synergistic omnichannel paradigms enables holistic optimization of funnel dynamics for maximal ROI scalability.",
+        ai: true,
+        score: 91,
+      },
+      {
+        id: "p3-3",
+        text: "Furthermore, this comprehensive analysis delineates actionable frameworks to facilitate data-driven decision-making processes.",
+        ai: true,
+        score: 87,
+      },
+    ],
+  },
+  {
+    page: 4,
+    title: "CAC & Budget",
+    ai: 22,
+    paragraphs: [
+      {
+        id: "p4-1",
+        text: "CAC blended turun ke $42 (-11% QoQ), namun Paid Social naik ke $61 sehingga perlu realokasi ke retargeting.",
+        ai: false,
+        score: 8,
+      },
+      {
+        id: "p4-2",
+        text: "It is imperative to note that budgetary allocations were strategically optimized to enhance overall performance metrics.",
+        ai: true,
+        score: 78,
+      },
+    ],
+  },
+  {
+    page: 5,
+    title: "Retention & Churn",
+    ai: 5,
+    paragraphs: [
+      {
+        id: "p5-1",
+        text: "Churn turun ke 3.1% setelah revamp onboarding — checklist hari ke-7 menaikkan aktivasi 14%.",
+        ai: false,
+        score: 5,
+      },
+      {
+        id: "p5-2",
+        text: "Tim CS menangani 320 tiket onboarding dengan rata-rata respons 2 jam 10 menit.",
+        ai: false,
+        score: 3,
+      },
+    ],
+  },
+];
