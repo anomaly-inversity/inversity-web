@@ -15,7 +15,13 @@ export default async function DocDetailPage({
 
   return (
     <div className="w-screen max-w-[1440px] px-4 sm:px-6 relative left-1/2 -translate-x-1/2">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
+      <div className="mb-5">
+        <h1 className="truncate text-xl font-semibold tracking-tight sm:text-2xl">
+          {mockDoc.title}
+        </h1>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 pb-10 lg:grid-cols-[minmax(0,1fr)_400px]">
         <section aria-label="PDF preview" className="min-w-0 order-first">
           <DocPreviewPanel />
         </section>

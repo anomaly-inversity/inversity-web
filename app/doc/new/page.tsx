@@ -32,7 +32,6 @@ export default function NewAppPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const watchedFile = watch("file");
-  const watchedDescription = watch("description") ?? "";
 
   const pickFile = (files: FileList | null) => {
     const file = files?.[0];
@@ -95,31 +94,6 @@ export default function NewAppPage() {
                     className="h-10 pl-9"
                     {...field}
                   />
-                </div>
-              )}
-            />
-
-            <FormGroup
-              control={control}
-              name="description"
-              label="Description"
-              render={({ field }) => (
-                <div className="space-y-2">
-                  <div className="relative">
-                    <AlignLeftIcon className="pointer-events-none absolute top-3 left-3 size-4 text-muted-foreground" />
-                    <Textarea
-                      className="min-h-32 resize-y pl-9"
-                      placeholder="What is this document about? Key topics, audience, version…"
-                      maxLength={500}
-                      {...field}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span>Optional — a short summary works best.</span>
-                    <span className="tabular-nums">
-                      {watchedDescription.length}/500
-                    </span>
-                  </div>
                 </div>
               )}
             />

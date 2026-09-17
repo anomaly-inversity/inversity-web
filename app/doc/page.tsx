@@ -105,23 +105,29 @@ export default function DocPage() {
 
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
         {Array.from({ length: 9 }).map((_, i) => (
-          <Card key={i} className="h-40 group transition hover:scale-105">
-            <CardContent className="relative">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <FileIcon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Dokumen {i + 1}</h3>
-              <p className="text-muted-foreground text-xs">
-                {moment().format("DD MMMM YYYY")}
-              </p>
+          <Link
+            href="/doc/1"
+            key={i}
+            className="group block transition hover:scale-105"
+          >
+            <Card>
+              <CardContent className="relative">
+                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                  <FileIcon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Dokumen {i + 1}</h3>
+                <p className="text-muted-foreground text-xs">
+                  {moment().format("DD MMMM YYYY")}
+                </p>
 
-              <div className="absolute top-0 right-2 opacity-0 transition group-hover:opacity-100">
-                <Button variant="ghost" size="icon">
-                  <MoreVerticalIcon />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="absolute top-0 right-2 z-1 opacity-0 transition group-hover:opacity-100">
+                  <Button variant="ghost" size="icon">
+                    <MoreVerticalIcon />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
 
